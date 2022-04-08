@@ -1,38 +1,37 @@
 #include <stdio.h>
 
 /**
- * main - prints a list of double didgits
+ * main - Prints numbers between 00 to 89.
  *
- * Description: digits should not be repeated twice
- * Return: Always(0) Success
-*/
-
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-	int i, j;
+	int i, e;
 
-	for (i = 48; i < 58; i++)
+	i = 48;
+	e = 48;
+
+	while (e < 58)
 	{
-		for (j = 48; j < 58; j++)
+		i = 48;
+		while (i < 58)
 		{
-			if (i == j)
+			if (e != i && e < i)
 			{
-				continue;
-			}
-			putchar(i);
-			putchar(j);
-			if (i == 56 && j == 57)
-			{
-				break;
-			}
-			else
-			{
+				putchar(e);
+				putchar(i);
+				if (i == 57 && e == 56)
+				{
+					break;
+				}
 				putchar(',');
 				putchar(' ');
 			}
+			i++;
 		}
+		e++;
 	}
 	putchar('\n');
-
 	return (0);
 }
