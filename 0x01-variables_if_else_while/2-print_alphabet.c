@@ -1,22 +1,18 @@
 #include <stdio.h>
-#include <stdlib.h>
-/**
- * main - main block
- * Description: alphabet in lowercase, followed by a new line.
- *
- * Always return(0)
- */
 
+/**
+ * main - prints the alphabet in lowercase,
+ * followed by a new line
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-        char ch = 'a';
+	char ch;
 
-        for (ch = 'a'; ch <= 'z'; ch++)
-        {
-                putchar(ch);
-        }
-        putchar('\n');
-
-        return (0);
-
+	for (ch = 'a'; ch <= 'z'; ch++)
+	{
+		putchar(ch);
+	}
+	putchar('\n');
+	return (0);
 }
