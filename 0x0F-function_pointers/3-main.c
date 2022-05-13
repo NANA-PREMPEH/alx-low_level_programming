@@ -1,52 +1,46 @@
-#include <stdio.h>
-#include "function_pointers.h"
+#include "3-calc.h"
 
 /**
- * print_name_as_is - prints a name as is
- * @name: name of the person
+ * main - program that perfroms simple operations
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * Return: Nothing.
+ * Return: Always 0 (Success)
  */
-void print_name_as_is(char *name)
+int main(int argc, char *argv[])
 {
-    printf("Hello, my name is %s\n", name);
-}
+	int arg1, arg2, result;
+	char o;
+	int (*func)(int, int);
 
-/**
- * print_name_uppercase - print a name in uppercase
- * @name: name of the person
- *
- * Return: Nothing.
- */
-void print_name_uppercase(char *name)
-{
-    unsigned int i;
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-    printf("Hello, my uppercase name is ");
-    i = 0;
-    while (name[i])
-    {
-        if (name[i] >= 'a' && name[i] <= 'z')
-        {
-            putchar(name[i] + 'A' - 'a');
-        }
-        else
-        {
-            putchar(name[i]);
-        }
-        i++;
-    }
-}
+	arg1 = atoi(argv[1]);
+	arg2 = atoi(argv[3]);
 
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    print_name("Bob", print_name_as_is);
-    print_name("Bob Dylan", print_name_uppercase);
-    printf("\n");
-    return (0);
+	func = get_op_func(argv[2]);
+
+	if (!func)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
+	o = *argv[2];
+
+	if ((o == '/' || o == '%') && arg2 == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	result = func(arg1, arg2);
+
+	printf("%d\n", result);
+
+	return (0);
 }
