@@ -13,21 +13,21 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list appa;
-	unsigned int index_i;
+	unsigned int index_1;
 
-	
+	/* initialize the argument list from the start */
 	va_start(appa, n);
 
-	
-	for (index_i = 0; index_i < n; index_i++)
+	/* iterate through each argument*/
+	for (index_1 = 0; index_1 < n; index_1++)
 	{
-		
+		/* print next argument */
 		printf("%d", va_arg(appa, int));
-		
-		if (separator && index_i != n - 1)
+		/* print separator only between arguments */
+		if (separator && index_1 != n - 1)
 			printf("%s", separator);
 	}
-	
+	/*clean up*/
 	va_end(appa);
 	printf("\n");
 }
