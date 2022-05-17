@@ -1,12 +1,12 @@
 #include "variadic_functions.h"
 
 /**
- * total_them_all - returns the total of all its parameters.
+ * sum_them_all - returns the total of all its parameters.
  * @n: amount of the arguments.
  *
  * Return: total of its parameters.
  */
-int total_them_all(const unsigned int n, ...)
+int sum_them_all(const unsigned int n, ...)
 {
 	va_list appa;
 	unsigned int i;
